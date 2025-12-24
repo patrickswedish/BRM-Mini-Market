@@ -1,0 +1,7 @@
+{
+  "name": "Copy of BRM Mini Market & Tech Repair",
+  "description": "A high-energy, late-night industrial 'Red Cyberpunk' style website for BRM Mini Market in Milano Centrale, featuring liquor, luggage, and tech repair services.",
+  "requestFramePermissions": [
+    "geolocation"
+  ]
+}
