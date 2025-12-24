@@ -12,9 +12,9 @@ const HERO_IMAGES = [
     alt: "Market Aisle"
   },
   {
-    url: "https://images.unsplash.com/photo-1514362545857-3bc16c4c7d1b?auto=format&fit=crop&q=80&w=1200",
-    label: "PREMIUM LIQUOR • COLD BEER",
-    alt: "Alcohol and Spirits"
+    url: "https://images.unsplash.com/photo-1618885472179-5e474019f2a9?auto=format&fit=crop&q=80&w=1200",
+    label: "COLD HEINEKEN • PREMIUM LIQUOR",
+    alt: "Cold Heineken Beer Bottle"
   },
   {
     url: "https://images.unsplash.com/photo-1581553680321-4fffae59fccd?auto=format&fit=crop&q=80&w=1200",
@@ -32,6 +32,7 @@ const Hero: React.FC<HeroProps> = ({ t }) => {
   const [currentIdx, setCurrentIdx] = useState(0);
 
   useEffect(() => {
+    // Images change every 3 seconds (3000ms)
     const interval = setInterval(() => {
       setCurrentIdx((prev) => (prev + 1) % HERO_IMAGES.length);
     }, 3000);
@@ -68,7 +69,7 @@ const Hero: React.FC<HeroProps> = ({ t }) => {
           </div>
         </div>
 
-        <div className="lg:col-span-5 relative order-1 lg:order-2 w-full max-w-2xl mx-auto pb-12 lg:pb-0">
+        <div className="lg:col-span-5 relative order-1 lg:order-2 w-full max-w-2xl mx-auto pb-16 lg:pb-0">
           <div className="relative group">
             <div className="relative z-10 border-[6px] xs:border-[8px] md:border-[16px] border-white shadow-[10px_10px_0px_rgba(0,0,0,0.6)] md:shadow-[30px_30px_0px_rgba(0,0,0,0.6)] overflow-hidden bg-zinc-900 aspect-square md:aspect-auto h-[300px] xxs:h-[350px] md:h-[500px]">
               <div className="relative overflow-hidden h-full w-full">
@@ -96,8 +97,8 @@ const Hero: React.FC<HeroProps> = ({ t }) => {
             <div className="absolute -top-3 -left-3 xs:-top-4 xs:-left-4 w-10 h-10 xs:w-12 xs:h-12 border-t-4 xs:border-t-8 border-l-4 xs:border-l-8 border-[#ffff00] pointer-events-none z-20"></div>
             <div className="absolute -bottom-3 -right-3 xs:-bottom-4 xs:-right-4 w-10 h-10 xs:w-12 xs:h-12 border-b-4 xs:border-b-8 border-r-4 xs:border-r-8 border-white pointer-events-none z-20"></div>
 
-            {/* Pagination Indicators - Fixed positioning to prevent overlap */}
-            <div className="absolute -bottom-8 lg:-bottom-12 left-1/2 -translate-x-1/2 flex gap-2 z-20">
+            {/* Pagination Indicators - Positioned further down to avoid overlap with yellow bar on tiny screens */}
+            <div className="absolute -bottom-10 lg:-bottom-14 left-1/2 -translate-x-1/2 flex gap-2 z-20">
               {HERO_IMAGES.map((_, idx) => (
                 <div 
                   key={idx}
