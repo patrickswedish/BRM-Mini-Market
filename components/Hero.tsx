@@ -8,8 +8,13 @@ interface HeroProps {
 const HERO_IMAGES = [
   {
     url: "https://images.unsplash.com/photo-1621939514649-280e2ee25f60?auto=format&fit=crop&q=80&w=1200",
-    label: "SNACKS • DRINKS • LIQUOR",
+    label: "INTERNATIONAL SNACKS • CHIPS",
     alt: "Market Aisle"
+  },
+  {
+    url: "https://images.unsplash.com/photo-1514362545857-3bc16c4c7d1b?auto=format&fit=crop&q=80&w=1200",
+    label: "PREMIUM LIQUOR • COLD BEER",
+    alt: "Alcohol and Spirits"
   },
   {
     url: "https://images.unsplash.com/photo-1581553680321-4fffae59fccd?auto=format&fit=crop&q=80&w=1200",
