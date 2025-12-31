@@ -7,7 +7,7 @@ export type TranslationContent = {
     items: { title: string; head: string; text: string }[];
   };
   about: { badge: string; h2: string; h2_yellow: string; h3: string; p1: string; p2: string; p2_highlight: string };
-  footer: { location: string; opposite: string; hours: string; follow: string; map_btn: string; terms: string; privacy: string };
+  footer: { location: string; opposite: string; hours: string; follow: string; map_btn: string };
 };
 
 export const translations: Record<string, TranslationContent> = {
@@ -40,8 +40,7 @@ export const translations: Record<string, TranslationContent> = {
     },
     footer: {
       location: "VIA VITRUVIO, 40", opposite: "Located directly opposite the Central Station.",
-      hours: "10:00 AM - 05:00 AM • EVERY DAY", follow: "FOLLOW US", map_btn: "GOOGLE MAPS",
-      terms: "TERMS", privacy: "PRIVACY"
+      hours: "10:00 AM - 05:00 AM • EVERY DAY", follow: "FOLLOW US", map_btn: "GOOGLE MAPS"
     }
   },
   it: {
@@ -73,8 +72,7 @@ export const translations: Record<string, TranslationContent> = {
     },
     footer: {
       location: "VIA VITRUVIO, 40", opposite: "Situato proprio di fronte alla Stazione Centrale.",
-      hours: "10:00 - 05:00 • TUTTI I GIORNI", follow: "SEGUICI", map_btn: "MAPPA GOOGLE",
-      terms: "TERMINI", privacy: "PRIVACY"
+      hours: "10:00 - 05:00 • TUTTI I GIORNI", follow: "SEGUICI", map_btn: "MAPPA GOOGLE"
     }
   }
 };

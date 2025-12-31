@@ -1,5 +1,5 @@
 
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import { MapPin, Phone, Clock, Mail, Instagram } from 'lucide-react';
 
 const TikTokIcon = ({ size = 24, className = "" }) => (
@@ -25,8 +25,6 @@ interface FooterProps {
     hours: string; 
     follow: string; 
     map_btn: string;
-    terms: string;
-    privacy: string;
   };
 }
 
@@ -100,11 +98,6 @@ const Footer: React.FC<FooterProps> = ({ t }) => {
       <div className="border-t border-white/20 py-8 md:py-16 text-center flex flex-col items-center gap-3 md:gap-4 px-4">
         <span className="text-3xl xxs:text-4xl md:text-7xl font-black italic tracking-tighter">BRM</span>
         <p className="text-[8px] xxs:text-[9px] md:text-xs opacity-40 font-mono">2025 BRM Mini Market • Neural Mode Studio</p>
-        
-        <div className="flex flex-wrap justify-center gap-4 md:gap-6 mt-2 md:mt-4 opacity-60">
-            <a href="#" className="text-[8px] xxs:text-[9px] md:text-xs font-bold uppercase hover:text-[#ffff00] transition-colors tracking-widest">{t.terms}</a>
-            <a href="#" className="text-[8px] xxs:text-[9px] md:text-xs font-bold uppercase hover:text-[#ffff00] transition-colors tracking-widest">{t.privacy}</a>
-        </div>
       </div>
     </footer>
   );
