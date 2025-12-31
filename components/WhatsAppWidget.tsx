@@ -47,10 +47,10 @@ const WhatsAppWidget: React.FC<{ lang: string }> = ({ lang }) => {
 
   if (!isVisible) return null;
 
-  const isRtl = lang === 'ar';
+  const isRtl = lang === 'ar' || lang === 'ur';
 
   return (
-    <div className={`fixed bottom-6 ${isRtl ? 'left-6' : 'right-6'} z-[100] flex flex-col gap-4 items-end`}>
+    <div className={`fixed bottom-6 ${isRtl ? 'left-6' : 'right-6'} z-[90] flex flex-col gap-4 items-end`}>
       
       {/* Call Button Group */}
       <div className={`flex items-center gap-3 group/call`}>

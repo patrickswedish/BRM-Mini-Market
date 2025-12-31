@@ -16,7 +16,7 @@ const Navbar: React.FC<NavbarProps> = ({ isScrolled, lang, setLang, t }) => {
   };
 
   return (
-    <nav className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 px-3 md:px-8 py-3 md:py-4 ${
+    <nav className={`fixed top-0 left-0 right-0 z-[100] transition-all duration-300 px-3 md:px-8 py-3 md:py-4 ${
       isScrolled ? 'bg-[#a81c21]/95 backdrop-blur-md shadow-2xl py-2 md:py-3 border-b border-white/10' : 'bg-transparent'
     }`}>
       <div className="max-w-[1440px] mx-auto flex items-center justify-between gap-2">

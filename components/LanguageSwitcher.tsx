@@ -55,6 +55,11 @@ const LanguageSwitcher: React.FC<LanguageSwitcherProps> = ({ currentLang, onLang
     return () => document.removeEventListener('mousedown', handleClickOutside);
   }, []);
 
+  const handleSelect = (code: string) => {
+    onLanguageChange(code);
+    setIsOpen(false);
+  };
+
   return (
     <div className="relative" ref={dropdownRef}>
       {/* Trigger Button */}
@@ -81,39 +86,36 @@ const LanguageSwitcher: React.FC<LanguageSwitcherProps> = ({ currentLang, onLang
         <>
           {/* Backdrop for Mobile */}
           <div 
-            className="fixed inset-0 bg-[#a81c21]/60 backdrop-blur-sm z-[90] sm:hidden"
+            className="fixed inset-0 bg-[#a81c21]/80 backdrop-blur-md z-[110] sm:hidden"
             onClick={() => setIsOpen(false)}
           />
 
           <div className={`
             fixed inset-x-4 top-[80px] sm:absolute sm:inset-auto sm:right-0 sm:top-full sm:mt-2
             w-auto sm:w-[480px] md:w-[600px] 
-            bg-black border-4 border-white shadow-[0_30px_90px_rgba(0,0,0,0.8)] 
-            z-[100] animate-in zoom-in-95 fade-in duration-200 origin-top-right
+            bg-black border-4 border-white shadow-[0_40px_100px_rgba(0,0,0,0.9)] 
+            z-[120] animate-in zoom-in-95 fade-in duration-200 origin-top-right
             flex flex-col
           `}>
             {/* Header Section */}
             <div className="bg-white/10 px-4 py-3 border-b border-white/20 flex items-center justify-between">
               <div className="flex items-center gap-2">
-                <div className="w-2 h-2 bg-[#ffff00] rounded-full animate-pulse"></div>
-                <span className="text-[10px] font-mono text-white/50 uppercase tracking-[0.3em]">LOC_CORE_V2</span>
+                <div className="w-2 h-2 bg-[#ffff00] rounded-full animate-pulse shadow-[0_0_8px_#ffff00]"></div>
+                <span className="text-[10px] font-mono text-white/50 uppercase tracking-[0.3em]">LANG_NEXUS_v2.0</span>
               </div>
-              <button onClick={() => setIsOpen(false)} className="sm:hidden text-white/40 hover:text-white">
-                <X size={20} />
+              <button onClick={() => setIsOpen(false)} className="sm:hidden text-[#ffff00] hover:text-white p-2">
+                <X size={24} strokeWidth={3} />
               </button>
             </div>
 
             {/* Language Grid */}
-            <div className="max-h-[60vh] sm:max-h-[450px] overflow-y-auto custom-scrollbar p-2 grid grid-cols-1 xxs:grid-cols-2 md:grid-cols-3 gap-1 bg-zinc-900/50">
+            <div className="max-h-[60vh] sm:max-h-[450px] overflow-y-auto custom-scrollbar p-1.5 grid grid-cols-1 xxs:grid-cols-2 md:grid-cols-3 gap-1 bg-zinc-950/80">
               {languages.map((lang) => (
                 <button
                   key={lang.code}
-                  onClick={() => {
-                    onLanguageChange(lang.code);
-                    setIsOpen(false);
-                  }}
-                  className={`flex flex-col items-start px-4 py-3 md:px-5 md:py-4 transition-all group border border-white/5 hover:border-[#ffff00]/30 hover:bg-[#ffff00]/5 ${
-                    currentLang === lang.code ? 'bg-[#ffff00] text-black border-[#ffff00]' : 'text-white'
+                  onClick={() => handleSelect(lang.code)}
+                  className={`flex flex-col items-start px-4 py-3 md:px-5 md:py-4 transition-all group border border-white/5 hover:border-[#ffff00]/30 hover:bg-[#ffff00]/10 ${
+                    currentLang === lang.code ? 'bg-[#ffff00] text-black border-[#ffff00] shadow-[inset_0_0_10px_rgba(0,0,0,0.1)]' : 'text-white'
                   }`}
                 >
                   <div className="flex items-center justify-between w-full">
@@ -136,22 +138,25 @@ const LanguageSwitcher: React.FC<LanguageSwitcherProps> = ({ currentLang, onLang
             </div>
 
             {/* Footer Section */}
-            <div className="bg-black p-3 border-t border-white/20 hidden sm:block">
+            <div className="bg-black p-3 border-t border-white/20">
               <div className="flex items-center justify-between">
                 <div className="flex items-center gap-2">
                   <div className="w-1.5 h-1.5 bg-[#ffff00]"></div>
-                  <span className="text-[8px] font-mono text-white/40 uppercase tracking-[0.2em]">Milano_Nexus_Ready</span>
+                  <span className="text-[8px] font-mono text-white/40 uppercase tracking-[0.2em]">Milano_Central_Node</span>
                 </div>
-                <span className="text-[8px] font-mono text-[#ffff00] uppercase tracking-[0.1em]">{languages.length} Translation Nodes</span>
+                <span className="text-[8px] font-mono text-[#ffff00] uppercase tracking-[0.1em]">{languages.length} Active Protocols</span>
               </div>
             </div>
+
+            {/* Scanline Effect Overlay */}
+            <div className="absolute inset-0 bg-[linear-gradient(rgba(18,16,16,0)_50%,rgba(0,0,0,0.1)_50%)] bg-[length:100%_4px] pointer-events-none opacity-10"></div>
           </div>
         </>
       )}
 
       <style>{`
         .custom-scrollbar::-webkit-scrollbar {
-          width: 6px;
+          width: 8px;
           display: block !important;
         }
         .custom-scrollbar::-webkit-scrollbar-track {
@@ -159,7 +164,10 @@ const LanguageSwitcher: React.FC<LanguageSwitcherProps> = ({ currentLang, onLang
         }
         .custom-scrollbar::-webkit-scrollbar-thumb {
           background: #ffff00;
-          border: 1px solid #000;
+          border: 2px solid #000;
+        }
+        .custom-scrollbar::-webkit-scrollbar-thumb:hover {
+          background: #fff;
         }
       `}</style>
     </div>
